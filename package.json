@@ -15,7 +15,7 @@
     "@types/react-dom": "^16.0.4",
     "npm": "^6.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.2.1",
     "react-google-charts": "^2.0.29"
   },
   "devDependencies": {
