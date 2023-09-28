@@ -1,14 +1,19 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
-        "sourceMap": true,
-        "noImplicitAny": true,
-        "module": "commonjs",
-        "target": "es5",
-        "jsx": "react",
-        "lib": ["es2015", "dom"]
+      "outDir": "./build",
+      "sourceMap": true,
+      "lib": [
+        "dom",
+        "es2015"
+      ],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "module": "commonjs",
+      "target": "es5",
+      "jsx": "react"
     },
     "include": [
-        "./src/**/*"
+      "src/**/*"
     ]
-}
+  }

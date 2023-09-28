@@ -223,7 +223,7 @@ class GoogleChart extends React.Component<any, any>
 
         var objectData = this.props.isDesignTime ? [] : model.objectData;
 
-        if (model.objectData && state.objectData && !this.state.objectData) {
+        if (model.objectData) {
 
             objectData = model.objectData.map(function (modelItem : any) {
 
@@ -250,11 +250,6 @@ class GoogleChart extends React.Component<any, any>
         var content = null;
         var rowOutcomes = this.outcomes.filter(function (outcome : any) { return !outcome.isBulkAction });
         var headerOutcomes = this.outcomes.filter(function (outcome : any) { return outcome.isBulkAction });
-
-        if (state.objectData)
-        {
-            objectData = state.objectData;
-        }
 
         if (state.error) 
         {
@@ -606,32 +601,33 @@ class GoogleChart extends React.Component<any, any>
     chartNameToType(name : string)
     {
         var result : any = {name : "", options: {}};
-        switch(name.toLowerCase())
+        switch(name)
         {
-            case 'annotation': result.name = "AnnotationChart"; break;
-            case 'area': result.name =  "AreaChart"; break;
-            case 'bar': result.name =  "BarChart"; break;
-            case 'bubble': result.name =  "BubbleChart"; break;
-            case 'calendar': result.name =  "Calendar"; break;
-            case 'candlestick': result.name =  "CandlestickChart"; break;
-            case 'column': result.name =  "ColumnChart";  break;
-            case 'gantt': result.name =  "Gannt"; break;
-            case 'gauge': result.name =  "Gauge"; break;
-            case 'geo': result.name =  "GeoChart"; break;
-            case 'line': result.name =  "LineChart"; break;
-            case 'org': result.name =  "OrgChart"; break;
-            case 'pie': result.name =  "PieChart"; break;
-            case 'sankey': result.name =  "Sankey"; break;
-            case 'scatter': result.name =  "ScatterChart"; break;
-            case 'steppedarea': result.name =  "SteppedAreaChart"; break;
-            case 'table': result.name = "Table"; break;
-            case 'timelines': result.name =  "TimeLine"; break;
-            case 'treemap': result.name =  "TreeMap"; break;
-            case 'trend': 
+            case 'AnnotationChart': result.name = "AnnotationChart"; break;
+            case 'AreaChart': result.name =  "AreaChart"; break;
+            case 'BarChart': result.name =  "BarChart"; break;
+            case 'StackedBarChart': result.name =  "BarChart"; result.options.isStacked=true;break;
+            case 'BubbleChart': result.name =  "BubbleChart"; break;
+            case 'Calendar': result.name =  "Calendar"; break;
+            case 'CandlestickChart': result.name =  "CandlestickChart"; break;
+            case 'ColumnChart': result.name =  "ColumnChart";  break;
+            case 'Gannt': result.name =  "Gannt"; break;
+            case 'Gauge': result.name =  "Gauge"; break;
+            case 'GeoChart': result.name =  "GeoChart"; break;
+            case 'LineChart': result.name =  "LineChart"; break;
+            case 'OrgChart': result.name =  "OrgChart"; break;
+            case 'PieChart': result.name =  "PieChart"; break;
+            case 'Sankey': result.name =  "Sankey"; break;
+            case 'ScatterChart': result.name =  "ScatterChart"; break;
+            case 'SteppedAreaChart': result.name =  "SteppedAreaChart"; break;
+            case 'Table': result.name = "Table"; break;
+            case 'TimeLine': result.name =  "TimeLine"; break;
+            case 'TreeMap': result.name =  "TreeMap"; break;
+            case 'TrendLine': 
                 result.options.trendlines={ 0: {} };
                 result.name =  "ScatterChart";
                 break;
-            case 'wordtree': 
+            case 'WordTree': 
                 result.options.wordtree= {format: 'implicit', word: 'cats' };
                 result.name =  "WordTree";
                 break;
